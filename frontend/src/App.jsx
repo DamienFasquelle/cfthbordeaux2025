@@ -11,6 +11,8 @@ import VosPhotos from './pages/VosPhotos';
 import SiteMap from './SiteMap';
 import Login from './pages/Login';
 import SignIn from './pages/SignIn';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 const App = () => {
   return (
@@ -26,7 +28,8 @@ const App = () => {
         <Route path="/sitemap" element={<SiteMap />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<SignIn />} />
-
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
       <Footer />
     </Router>

@@ -3,7 +3,7 @@ import React from 'react';
 const Quizz = () => {
   return (
     <div className="container text-center my-5">
-      <h1>Quizz</h1>
+      <h2>Quizz</h2>
       <p className="mb-4">Cliquez sur le bouton ci-dessous pour accéder au quiz :</p>
       
       <a 

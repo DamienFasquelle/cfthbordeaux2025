@@ -5,8 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Contrôle de l'ouverture du modal
-  const [currentImage, setCurrentImage] = useState(""); // Image actuellement affichée dans le modal
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [currentImage, setCurrentImage] = useState(""); 
 
   const slideStyle = {
     width: "100%",
@@ -41,9 +41,9 @@ const Home = () => {
   return (
     <div className="container my-5">
       {/* Titre principal */}
-      <h1 className="text-center mb-4 fw-bold">
+      <h2 className="text-center mb-4 fw-bold">
         Bienvenue au CFTH 2025 Bordeaux
-      </h1>
+      </h2>
 
       {/* Description */}
       <p className="text-center fs-5 mb-5 text-muted">

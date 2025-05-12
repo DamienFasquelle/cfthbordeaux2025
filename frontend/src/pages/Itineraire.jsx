@@ -5,12 +5,12 @@ import aeroport from "../assets/image/other/aeroport.jpg";
 const Itineraire = () => {
   return (
     <div className="container my-5">
-      <h1 className="text-center mb-5">Itinéraires</h1>
+      <h2 className="text-center mb-5">Itinéraires</h2>
 
       {/* Itinéraire depuis la gare */}
       <div className="card mb-5">
         <div className="card-header">
-          <h2>Depuis la Gare Saint Jean (Bordeaux)</h2>
+          <h3>Depuis la Gare Saint Jean (Bordeaux)</h3>
         </div>
         <div className="card-body">
           <img src={gare} alt="gare" className="img-fluid mb-4" />
@@ -43,7 +43,7 @@ const Itineraire = () => {
       {/* Itinéraire depuis l'aéroport */}
       <div className="card mb-5">
         <div className="card-header">
-          <h2>Depuis l'Aéroport de Mérignac</h2>
+          <h3>Depuis l'Aéroport de Mérignac</h3>
         </div>
         <div className="card-body">
           <img src={aeroport} alt="aeroport" className="img-fluid mb-4" />
@@ -62,7 +62,7 @@ const Itineraire = () => {
             Voir l'itinéraire sur Google Maps
           </a>
 
-          <h3>Trajet en Tram</h3>
+          <h4>Trajet en Tram</h4>
           <p>
             Prenez le tram A direction Floirac Dravemont (Floirac) <br />
             Descendre dans 10 arrêts à François Mitterrand
