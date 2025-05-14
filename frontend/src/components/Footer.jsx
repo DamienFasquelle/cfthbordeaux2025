@@ -22,8 +22,8 @@ const Footer = () => {
         {/* Section Contact */}
         <div className="row">
           <div className="col-md-6 mb-3">
-            <h5>Contact</h5>
-            <ul className="list-unstyled">
+            <h5 className='text-primary'>Contact</h5>
+            <ul className="list-unstyled text-start">
               <li><strong>Email :</strong> <a href="mailto:secretariat.cfth@outlook.fr">secretariat.cfth@outlook.fr</a></li>
               <li><strong>Téléphone :</strong> <a href="tel:+33660332058">06 60 33 20 58</a></li>
               <li><strong>Adresse :</strong> 159 boulevard Voltaire, 75011 Paris, France</li>
@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Section Grille des partenaires */}
           <div className="col-md-6">
             <h5>Nos Partenaires</h5>
-            <div className="row">
+            <div className="row ">
               {logos.map((logo, index) => (
                 <div className="col-4 mb-3" key={index}>
                   <img src={logo} className="img-fluid" alt="Partenaire" />
