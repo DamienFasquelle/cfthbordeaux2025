@@ -29,7 +29,7 @@ const SignIn = () => {
       }
 
       setSuccess(true);
-      setTimeout(() => navigate('/login'), 1500); // redirection avec délai
+      setTimeout(() => navigate('/login'), 1500);
     } catch (error) {
       setError(error.message);
     }
@@ -67,7 +67,7 @@ const SignIn = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="username" className="form-label">Nom d'utilisateur</label>
+            <label htmlFor="username" className="form-label">Nom et prénom</label>
             <input
               type="text"
               className="form-control rounded-3"

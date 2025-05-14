@@ -15,11 +15,11 @@ const Header = () => {
   };
 
   return (
-    <header className="">
-      <nav className="navbar">
+    <header>
+      <nav className="navbar p-0 m-0">
         <div
           className="container-fluid d-flex justify-content-between align-items-center"
-          style={{ maxWidth: '1200px', margin: '0 auto' }}
+          style={{ maxWidth: '1200px', margin: 'auto' }}
         >
           <button
             className="navbar-toggler order-1"
@@ -29,20 +29,24 @@ const Header = () => {
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            style={{ width: '50px', marginRight: '10px', marginLeft: '10px' }}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <h1 className="fs-1 mb-0 text-nowrap order-2">CFTH Bordeaux</h1>
+          {/* Titre au centre avec un espace réduit */}
+          <h1 className="fs-4 mb-0 order-2 title" style={{width: '30%', textAlign: 'center'}}>
+            CFTH <br className="d-sm-block d-none" /> Bordeaux
+          </h1>
 
+          {/* Logo à droite avec une petite marge */}
           <Link to="/" className="navbar-brand order-3 ms-1">
             <img src={logo} alt="Logo" className="img-fluid" style={{ maxWidth: '100px', height: 'auto' }} />
           </Link>
         </div>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <hr />
-          <ul className="navbar-nav flex-row justify-content-center flex-wrap gap-2 mt-2">
+        <div className="collapse navbar-collapse mb-2" id="navbarNav">
+          <ul className="navbar-nav flex-row justify-content-center flex-wrap gap-1 mt-2">
             <li className="nav-item">
               <Link to="/repas" className={`nav-link ${isActive('/repas') ? 'active' : ''}`}>
                 Repas
