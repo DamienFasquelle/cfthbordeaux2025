@@ -113,15 +113,19 @@ const VosPhotos = () => {
     return (
         <section className="container my-3">
             <h2 className="text-center mb-5">Galerie Photos</h2>
-            {successMessage && (
-                <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded shadow-lg">
-                    {successMessage}
-                </div>
-            )}
             {!user ? (
-                <div className="alert alert-warning text-center">
-                    Vous devez être <button className="btn btn-link p-0" onClick={() => navigate('/login')}>connecté</button> pour publier des photos.
-                </div>
+               <div className="bg-primary text-center text-white p-3 rounded mb-4">
+    Vous devez être{" "}
+    <button
+        className="btn btn-link text-white p-0 fw-semibold"
+        onClick={() => navigate('/login')}
+        style={{ textDecoration: "underline" }}
+    >
+        connecté
+    </button>{" "}
+    pour publier des photos.
+</div>
+
             ) : (
                 <div className="mb-4">
                     <button onClick={handleFileSelect} className="btn text-white mb-3 w-100" style={{ backgroundColor: 'var(--cfth-primary)' }}>

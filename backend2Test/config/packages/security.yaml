@@ -30,7 +30,10 @@ security:
 
     access_control:
         - { path: ^/api/login, roles: PUBLIC_ACCESS }  
+        - { path: ^/api/register, roles: PUBLIC_ACCESS }  
         - { path: ^/api/photos, roles: PUBLIC_ACCESS } 
+        - { path: ^/api/forgot-password, roles: PUBLIC_ACCESS }
+        - { path: ^/api/reset-password, roles: PUBLIC_ACCESS }
         - { path: ^/api/upload-photo, roles: ROLE_USER }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
      

@@ -6,22 +6,29 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState(null);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const res = await fetch('https://api.ddvportfolio.com/api/forgot-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
+  try {
+    const res = await fetch('http://127.0.0.1:8000/api/forgot-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
 
-      if (!res.ok) throw new Error("Erreur lors de l'envoi de l'email.");
-      setMessage("Un lien de réinitialisation a été envoyé !");
-    } catch (error) {
-      setMessage(error.message);
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.message || "Erreur lors de l'envoi du token.");
     }
-  };
+
+    const data = await res.json();
+    const token = data.token;
+    navigate(`/reset-password/${token}`);
+  } catch (error) {
+    setMessage(error.message);
+  }
+};
+
 
   return (
     <section className="container-fluid d-flex justify-content-center align-items-center bg-light p-5">
@@ -46,11 +53,9 @@ const ForgotPassword = () => {
             transition: 'transform 0.2s ease',
           }}>Envoyer</button>
         </form>
-        {message && <div className="alert mt-3 text-center">{message}</div>}
+        {message && <div className="alert alert-warning mt-3 text-center">{message}</div>}
         <div className="text-center mt-3">
-          <button className="btn btn-link"  style={{
-              color: 'var(--cfth-primary)',
-            }} onClick={() => navigate('/login')}>
+          <button className="btn btn-link" style={{ color: 'var(--cfth-primary)' }} onClick={() => navigate('/login')}>
             Retour à la connexion
           </button>
         </div>

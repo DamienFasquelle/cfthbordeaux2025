@@ -34,7 +34,7 @@ const Login = () => {
       localStorage.setItem('token', result.token);
       handleLoginSuccess();
     } catch (error) {
-      setError(error.message);
+      setError('Erreur serveur. Veuillez réessayer plus tard.');
     }
   };
 

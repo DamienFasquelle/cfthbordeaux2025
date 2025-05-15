@@ -20,14 +20,13 @@ const ResetPassword = () => {
     }
 
     try {
-      const res = await fetch(`https://api.ddvportfolio.com/api/reset-password/${token}`, {
+      const res = await fetch(`http://127.0.0.1:8000/api/reset-password/${token}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: newPassword }),
       });
 
       if (!res.ok) throw new Error("Erreur lors de la réinitialisation.");
-
       setMessage("Mot de passe mis à jour avec succès !");
       setTimeout(() => navigate('/login'), 2500);
     } catch (err) {
@@ -58,14 +57,14 @@ const ResetPassword = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <button type="submit" className="btn btn-primary w-100">
+          <button type="submit" className="btn bg-primary text-white w-100">
             Réinitialiser
           </button>
         </form>
         {error && <div className="alert alert-danger mt-3 text-center">{error}</div>}
         {message && <div className="alert alert-success mt-3 text-center">{message}</div>}
         <div className="text-center mt-3">
-          <button className="btn btn-link" onClick={() => navigate('/login')}>
+          <button className="btn btn-link text-dark" onClick={() => navigate('/login')}>
             Retour à la connexion
           </button>
         </div>

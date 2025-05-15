@@ -112,7 +112,7 @@ const Home = () => {
           {/* Map Slide */}
           <div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.7808940267623!2d-0.6152200238756017!3d44.826028171070774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54d86c2cd5efdd%3A0xdbe62b422399fb6f!2sInstitut%20des%20Metiers%20de%20la%20Sant%C3%A9%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1731928183842!5m2!1sfr!2sfr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.113197313747!2d-0.6587252229675254!3d44.79888167107077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54d9130ed3b7e9%3A0xe607cf8428dc77eb!2sInstitut%20des%20M%C3%A9tiers%20de%20la%20Sant%C3%A9%20(IMS)!5e0!3m2!1sfr!2sfr!4v1747302113299!5m2!1sfr!2sfr"
               style={{
                 width: "100%",
                 height: "400px",

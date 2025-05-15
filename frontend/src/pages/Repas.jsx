@@ -1,6 +1,6 @@
 import React from 'react';
-import repasJeudi from '../assets/image/other/Affiche.png';  
-import repasVendredi from '../assets/image/other/Affiche.png';  
+import repasJeudi from '../assets/image/other/repas/cafe/cafe.webp';  
+import repasVendredi from '../assets/image/other/repas/schoolbus/bus.jpg';  
 
 const Repas = () => {
   return (

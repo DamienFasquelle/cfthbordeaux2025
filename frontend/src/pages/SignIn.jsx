@@ -80,7 +80,7 @@ const SignIn = () => {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Choisissez un nom d'utilisateur"
+              placeholder="Entrez votre nom et prénom"
               required
               style={{ fontSize: '14px' }}
             />
