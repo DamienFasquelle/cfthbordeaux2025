@@ -37,18 +37,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $username = null;
 
     /**
-     * @var Collection<int, Comment>
-     */
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'idUser')]
-    private Collection $comments;
-
-    /**
-     * @var Collection<int, FavoriteGame>
-     */
-    #[ORM\OneToMany(targetEntity: FavoriteGame::class, mappedBy: 'user', cascade: ['persist', 'remove'])]
-    private Collection $favoriteGames;
-
-    /**
      * @var Collection<int, Photo>
      */
     #[ORM\OneToMany(targetEntity: Photo::class, mappedBy: 'user')]
@@ -56,8 +44,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->comments = new ArrayCollection();
-        $this->favoriteGames = new ArrayCollection();
+       
         $this->photos = new ArrayCollection();
     }
 
@@ -150,66 +137,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Comment>
-     */
-    public function getComments(): Collection
-    {
-        return $this->comments;
-    }
-
-    public function addComment(Comment $comment): static
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments->add($comment);
-            $comment->setIdUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeComment(Comment $comment): static
-    {
-        if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getIdUser() === $this) {
-                $comment->setIdUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, FavoriteGame>
-     */
-    public function getFavoriteGames(): Collection
-    {
-        return $this->favoriteGames;
-    }
-
-    public function addFavoriteGame(FavoriteGame $favoriteGame): static
-    {
-        if (!$this->favoriteGames->contains($favoriteGame)) {
-            $this->favoriteGames->add($favoriteGame);
-            $favoriteGame->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFavoriteGame(FavoriteGame $favoriteGame): static
-    {
-        if ($this->favoriteGames->removeElement($favoriteGame)) {
-            // set the owning side to null (unless already changed)
-            if ($favoriteGame->getUser() === $this) {
-                $favoriteGame->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
+    
     /**
      * @return Collection<int, Photo>
      */

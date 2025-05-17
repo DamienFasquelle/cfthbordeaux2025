@@ -16,29 +16,36 @@ const SignIn = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(null);
-    setSuccess(false);
+  e.preventDefault();
+  setError(null);
+  setSuccess(false);
 
-    const data = { email, username, password };
+  const data = { email, username, password };
 
-    try {
-      const response = await fetch('http://127.0.0.1:8000/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+  try {
+    const response = await fetch('https://api.ddvportfolio.com/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
 
-      if (!response.ok) {
-        throw new Error("Échec de l'inscription. Vérifiez vos informations.");
+    const resData = await response.json();
+
+    if (!response.ok) {
+      if (response.status === 409 && resData.message === "Utilisateur déjà existant") {
+        throw new Error("Un compte avec cet email existe déjà.");
       }
-
-      setSuccess(true);
-      setTimeout(() => navigate('/login'), 1500);
-    } catch (error) {
-      setError(error.message);
+      throw new Error(resData.message || "Échec de l'inscription. Vérifiez vos informations.");
     }
-  };
+
+    setSuccess(true);
+    setTimeout(() => navigate('/login'), 1500);
+  } catch (error) {
+    setError(error.message);
+  }
+};
+
+
 
   return (
     <section className="container-fluid d-flex justify-content-center align-items-center bg-light p-4">

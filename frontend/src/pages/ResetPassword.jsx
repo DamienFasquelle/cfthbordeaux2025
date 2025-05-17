@@ -20,7 +20,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/reset-password/${token}`, {
+      const res = await fetch(`https://api.ddvportfolio.com/api/reset-password/${token}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: newPassword }),
